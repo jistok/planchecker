@@ -9,14 +9,25 @@ Test data is in the testdata directory.
 ## Installation
 Go must be installed. Install it from https://go.dev/ or your favorite package manager for your OS
 
-1.  `git clone https://github.com/jistok/planchecker.git`
-2.  `cd planchecker`
-3.  `go build`
+```
+git clone https://github.com/jistok/planchecker.git
+cd planchecker
+go build
+```
 
 Optionally, if you want to read from a file, STDIN or a string, you can run:
-`go build examples/plancheck_example_from_file.go`
-`go build examples/plancheck_example_from_stdin.go`
-`go build examples/plancheck_example_from_string.go`
+
+```
+go build examples/plancheck_example_from_file.go
+```
+
+```
+go build examples/plancheck_example_from_stdin.go
+```
+
+```
+go build examples/plancheck_example_from_string.go
+```
 
 ### Example reading from file
 Passes the filename to Greenplum PlanChecker
