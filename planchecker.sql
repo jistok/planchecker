@@ -1,11 +1,8 @@
 -- Main table to store plans
 CREATE TABLE plans (
-    id          INT NOT NULL AUTO_INCREMENT,
+    id          serial not null primary key,
     ref         VARCHAR(16) NOT NULL,
     plantext    TEXT NOT NULL,
-    created_at  DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (id)
+    created_at  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT  unique_index_ref UNIQUE (ref)
 );
-
--- Add unique index on Ref field
-ALTER TABLE `plans` ADD UNIQUE INDEX `unique_index_ref` (`ref`);
