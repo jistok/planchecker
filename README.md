@@ -1,5 +1,5 @@
 # Greenplum PlanChecker
-Greenplum PlanChecker parses Greenplum query plans and highlight any potential performance issues.
+Greenplum PlanChecker parses Greenplum query plans and highlights any potential performance issues.
 
 ## Package
 plan.go contains all the logic for parsing the query plans.
