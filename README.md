@@ -1,25 +1,37 @@
-# PlanChecker
-PlanChecker parses Greenplum query plans and highlight any potential performance issues.
+# Greenplum PlanChecker
+Greenplum PlanChecker parses Greenplum query plans and highlight any potential performance issues.
 
 ## Package
 plan.go contains all the logic for parsing the query plans.
 There are 3 example programs which initialize a plan object using different methods.
 Test data is in the testdata directory.
 
+## Installation
+Go must be installed. Install it from https://go.dev/ or your favorite package manager for your OS
+
+1.  `git clone https://github.com/jistok/planchecker.git`
+2.  `cd planchecker`
+3.  `go build`
+
+Optionally, if you want to read from a file, STDIN or a string, you can run:
+`go build examples/plancheck_example_from_file.go`
+`go build examples/plancheck_example_from_stdin.go`
+`go build examples/plancheck_example_from_string.go`
+
 ### Example reading from file
-Passes the filename to PlanChecker
+Passes the filename to Greenplum PlanChecker
 ```
 ./plancheck_example_from_file testdata/explain01.txt
 ```
 
 ### Example reading from string
-Reads file contents and passes string to PlanChecker
+Reads file contents and passes string to Greenplum PlanChecker
 ```
 ./plancheck_example_from_string testdata/explain01.txt
 ```
 
 ### Example reading from stdin
-PlanChecker reads directly from stdin
+Greenplum PlanChecker reads directly from stdin
 ```
 cat testdata/explain01.txt | ./plancheck_example_from_stdin
 ```
