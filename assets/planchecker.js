@@ -1,6 +1,7 @@
-function savePlan(){
+function savePlan() {
     // Show spinner
-    $('#saveSpinner').removeClass('hidden');
+    $('#saveSpinner').show();
+    $('#bookmarkMsg').hide();
     $.ajax({
         method: "POST",
         url: "/plan/",
@@ -13,15 +14,15 @@ function savePlan(){
         if (res.status == "success") {
             $('#planRefLink').html(res.ref);
             $('#planRefLink').attr('href', '/plan/' + res.ref);
-            $('#planRef').removeClass('hidden');
-            $('#bookmarkMsg').removeClass('hidden');
-            $('#planSave').addClass('hidden');
+            $('#planRef').show();
+            $('#bookmarkMsg').show();
+            $('#planSave').hide();
         } else if (res.status == "failure") {
             alert(res.msg);
         }
 
         // Remove spinner
-        $('#saveSpinner').addClass('hidden');
+        $('#saveSpinner').css("display", "none");
     });
 }
 
@@ -31,16 +32,16 @@ $(function () {
         $('[data-toggle="tooltip"]').tooltip();
     }
 
+    $('#bookmarkMsg').hide();
+
     if (typeof planRef !== 'undefined') {
         if (planRef == "") {
-            console.log("enable save");
-            $('#planSave').removeClass('hidden');
-            $('#alertTop').removeClass('hidden');
-            $('#planRef').addClass('hidden');
+            $('#planSave').show();
+            $('#alertTop').show();
+            $('#planRef').show();
         } else {
-            console.log("enable ref");
-            $('#planRef').removeClass('hidden');
-            $('#planSave').addClass('hidden');
+            $('#planRef').show();
+            $('#planSave').show();
         }
     }
 });

@@ -1,3 +1,37 @@
+/* planchecker */
+body{
+    margin-bottom:10px;
+}
+.text-justify {
+    text-align: justify;
+}
+hr.small {
+    margin: 7px 0px;
+}
+.breadcrumb{
+    margin-bottom:0px;
+}
+.plan {
+    font-size:10pt;
+    white-space:pre-wrap;
+    font-family:Menlo,Monaco,Consolas,"Courier New",monospace;
+    margin-top:15px;
+}
+.table-nonfluid {
+    width: auto !important;
+}
+.tooltip-inner {
+    white-space:pre-wrap;
+}
+.nowrap{
+    white-space:nowrap;
+}
+.optimizer-orca{
+    background-color: #8dc63f;
+}
+.optimizer-legacy{
+    background-color: #326690;
+}
 section{
     margin-bottom:40px;
 }
@@ -6,7 +40,4 @@ section{
 }
 .container{
     max-width:800px;
-}
-.plan{
-    margin-top:0px;
 }

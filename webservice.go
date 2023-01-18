@@ -159,14 +159,14 @@ func GenerateChecklistHtml() string {
 	for _, c := range plan.NODECHECKS {
 		scope := ""
 		for _, s := range c.Scope {
-			scope += fmt.Sprintf(" <span class=\"label optimizer-%[1]s\">%[1]s</span> ", s)
+			scope += fmt.Sprintf(" <span class=\"badge optimizer-%[1]s\">%[1]s</span> ", s)
 		}
 		checks += fmt.Sprintf("<tr><td>%s</td><td class=\"nowrap\">%s</td><td class=\"nowrap\">%s</td></tr>", c.Description, scope, c.CreatedAt)
 	}
 	for _, c := range plan.EXPLAINCHECKS {
 		scope := ""
 		for _, s := range c.Scope {
-			scope += fmt.Sprintf(" <span class=\"label optimizer-%[1]s\">%[1]s</span> ", s)
+			scope += fmt.Sprintf(" <span class=\"badge optimizer-%[1]s\">%[1]s</span> ", s)
 		}
 		checks += fmt.Sprintf("<tr><td>%s</td><td class=\"nowrap\">%s</td><td class=\"nowrap\">%s</td></tr>", c.Description, scope, c.CreatedAt)
 	}
@@ -296,7 +296,7 @@ func RenderNodeHtml(n *plan.Node, indent int) string {
 	HTML := fmt.Sprintf("<tr><td style=\"padding-left:%dpx\">", indentPixels)
 
 	if n.Slice > -1 {
-		HTML += fmt.Sprintf("   <span class=\"label label-success\">Slice %d</span>\n",
+		HTML += fmt.Sprintf("   <span class=\"badge bg-success\">Slice %d</span><br>",
 			n.Slice)
 	}
 	HTML += fmt.Sprintf("<strong>-> %s (cost=%.2f..%.2f rows=%d width=%d)</strong>\n",
@@ -312,7 +312,7 @@ func RenderNodeHtml(n *plan.Node, indent int) string {
 	}
 
 	for _, w := range n.Warnings {
-		HTML += fmt.Sprintf("   <span class=\"label label-danger\">WARNING: %s | %s</span>\n", w.Cause, w.Resolution)
+		HTML += fmt.Sprintf("   <span class=\"badge bg-danger\">WARNING: %s | %s</span><br>", w.Cause, w.Resolution)
 	}
 
 	HTML += "</td>"
@@ -454,7 +454,7 @@ func RenderExplainHtml(e *plan.Explain) string {
 	if len(e.Warnings) > 0 {
 		HTML += fmt.Sprintf("<strong>Warnings:</strong>\n")
 		for _, w := range e.Warnings {
-			HTML += fmt.Sprintf("\t<span class=\"label label-danger\">%s | %s</span>\n", w.Cause, w.Resolution)
+			HTML += fmt.Sprintf("\t<span class=\"badge bg-danger\">%s | %s</span><br>", w.Cause, w.Resolution)
 		}
 	}
 
